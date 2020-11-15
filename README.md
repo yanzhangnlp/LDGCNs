@@ -52,5 +52,16 @@ We use BPE code. In the postprocessing stage, we need to merge them into natural
 ./merge_amr15.sh
 ```
 
+## Evaluation
+
+For BLEU score evaluation, run:
+
+```
+./eval_amr15_bleu.sh
+```
+
+
+
+
 
 
