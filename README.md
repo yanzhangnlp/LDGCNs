@@ -29,3 +29,16 @@ To train the LDGCN model, run (e.g., for AMR2015):
 ```
 ./train_amr15gc.sh
 ```
+
+## Decoding
+
+When we finish the training, we can use the trained model to decode on the test set, run:
+
+```
+./decode_amr15.sh
+```
+
+This will use the last checkpoint by default. Use `--checkpoints` to specify a model checkpoint file.
+
+
+
