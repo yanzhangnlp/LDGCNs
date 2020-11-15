@@ -42,3 +42,15 @@ This will use the last checkpoint by default. Use `--checkpoints` to specify a m
 
 
 
+## Postprocessing
+
+
+
+We use BPE code. In the postprocessing stage, we need to merge them into natural language sequence for evaluation, run:
+
+```
+./merge_amr15.sh
+```
+
+
+
