@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+python3 -m sockeye.train --source sockeye/data/amr_2017/train_bpe.amr \
+        --target sockeye/data/amr_2017/train_bpe.snt \
+        --source-graphs sockeye/data/amr_2017/train_bpe.grh \
+        --validation-source sockeye/data/amr_2017/dev_bpe.amr \
+        --validation-target sockeye/data/amr_2017/dev_bpe.snt \
+        --val-source-graphs sockeye/data/amr_2017/dev_bpe.grh \
+        --edge-vocab sockeye/data/amr_2017/edge_vocab.json \
+        --batch-size 16 \
+        --batch-type sentence \
+        --word-min-count 2:2 \
+        --num-embed 300:300 \
+        --embed-dropout .5:.5 \
+        --max-seq-len 199:199 \
+        --encoder gcn \
+        --gcn-activation relu \
+        --gcn-num-hidden 480 \
+        --gcn-pos-embed 300 \
+        --decoder rnn \
+        --num-layers 4:1 \
+        --rnn-num-hidden 300 \
+        --rnn-decoder-hidden-dropout 0.2 \
+        --checkpoint-frequency 1000 \
+        --max-num-checkpoint-not-improved 36 \
+        --initial-learning-rate 0.0003 \
+        --learning-rate-reduce-factor 0.8 \
+        --learning-rate-reduce-num-not-improved 8 \
+        --gcn-num-layers 4 \
+        --decode-and-evaluate -1 \
+        --output sockeye/amr2017_model \
+        --overwrite-output \
+        --device-ids 1 \
+        --gcn-dropout 0.1 \
+        --gcn-adj-norm \
+        --rnn-attention-type coverage \
+        --shared-vocab \
+        --weight-tying \
+        --weight-tying-type src_trg_softmax \
+        --attention-based-copying   \
+        --weight-normalization
